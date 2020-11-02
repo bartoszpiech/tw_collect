@@ -6,6 +6,8 @@ let capacity = [];
 let input = [], button;
 let images = [];
 let result = [];
+let levels = ['specjaliści surowcowi','zawodowi zbieracze','cierpliwi ciułacze','ambitni amatorzy'];
+
 function preload() {
   for(let i = 0; i < 8; i++) {
     let file = str(i) + '.png';
@@ -14,8 +16,8 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(500, 200);
-
+  createCanvas(windowWidth, windowHeight);
+  //noCanvas();
     
   for (let i = 0; i < 8; i++) {
     image(images[i], 17+i*58, 0);
@@ -58,9 +60,7 @@ function calculate() {
     for (j = 0; j < 8; j++) {
       text(result[i][j], 17+j*60, 70+i*20);
     }
+    text(levels[i], 500,69+i*20);
   }
 }
 
-function draw() {
-  //background(220);
-}
