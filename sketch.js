@@ -17,7 +17,7 @@ function preload() {
 
 function imagesLoad() {
   for (let i = 0; i < 8; i++) {
-    image(images[i], 25 + i * 59, 40);
+    image(images[i], windowWidth/2 + 25 + i * 59, windowHeight/2 + 40);
   }
 }
 
@@ -25,20 +25,21 @@ function inputLoad() {
   //background(255);
   altinput = createInput();
   altinput.size(500);
-  altinput.position(0, 0);
+  altinput.position(windowWidth/2, windowHeight/2);
   for (let i = 0; i < 8; i++) {
     input[i] = createInput();
-    input[i].size(40);
-    input[i].position(i * 60, 60);
+    input[i].size(40, 15);
+    input[i].position(windowWidth/2 + i * 60, windowHeight/2 + 60);
 
   }
   button = createButton("submit");
-  button.position(8 * 60, 60);
-  button.size(60, 35);
+  button.position(windowWidth/2 +8 * 60, windowHeight/2 +60);
+  button.size(60, 22);
 }
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  //createCanvas(500, 500);
   imagesLoad();
   inputLoad();
   button.mousePressed(calculate);
@@ -85,8 +86,8 @@ function calculate() {
   }
   for (i = 0; i < 4; i++) {
     for (j = 0; j < 8; j++) {
-      text(result[i][j], 17 + j * 60, 120 + i * 20);
+      text(result[i][j], windowWidth/2 + 17 + j * 60, windowHeight/2 + 120 + i * 20);
     }
-    text(levels[i], 500, 121 + i * 20);
+    text(levels[i], windowWidth/2 + 500, windowHeight/2 + 121 + i * 20);
   }
 }
