@@ -16,37 +16,45 @@ function preload() {
 }
 
 function imagesLoad() {
+  textSize(35);
+  text("kalkulator zbieractwa", 100, -50);
   for (let i = 0; i < 8; i++) {
-    image(images[i], windowWidth/2 + 25 + i * 59, windowHeight/2 + 40);
+    image(images[i],  20 + i * 59,  40);
   }
+  textSize(15);
 }
 
 function inputLoad() {
   //background(255);
+  
   altinput = createInput();
-  altinput.size(500);
-  altinput.position(windowWidth/2, windowHeight/2);
+  altinput.size(530);
+  altinput.position(windowWidth/2 - 530/2 , windowHeight/2 - 530/2);
   for (let i = 0; i < 8; i++) {
     input[i] = createInput();
     input[i].size(40, 15);
-    input[i].position(windowWidth/2 + i * 60, windowHeight/2 + 60);
+    input[i].position(windowWidth/2 - 530/2 + i * 60, windowHeight/2 - 530/2 + 60);
 
   }
   button = createButton("submit");
-  button.position(windowWidth/2 +8 * 60, windowHeight/2 +60);
+  button.position(windowWidth/2 - 530/2 + 8 * 60, windowHeight/2 - 530/2 + 60);
   button.size(60, 22);
+  
 }
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  //createCanvas(500, 500);
+  translate(windowWidth/2 - 530/2, windowHeight/2 - 530/2)
+  background(220, 201, 164);
+  fill(74, 60, 53);
   imagesLoad();
   inputLoad();
   button.mousePressed(calculate);
 }
 
 function calculate() {
-  background(255);
+  background(220, 201, 164);
+  textSize(15);
   imagesLoad();
   total_capacity = 0;
   if (altinput.value() != "") {
@@ -86,8 +94,8 @@ function calculate() {
   }
   for (i = 0; i < 4; i++) {
     for (j = 0; j < 8; j++) {
-      text(result[i][j], windowWidth/2 + 17 + j * 60, windowHeight/2 + 120 + i * 20);
+      text(result[i][j], 17 + j * 60, 120 + i * 20);
     }
-    text(levels[i], windowWidth/2 + 500, windowHeight/2 + 121 + i * 20);
+    text(levels[i], 500, 121 + i * 20);
   }
 }
